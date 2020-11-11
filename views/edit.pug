@@ -1,0 +1,14 @@
+link(rel='stylesheet', href='css/style.css', type='text/css')
+h1.title  edit
+a(href='/') index
+
+form(action="/saveEdit" method="post")
+	input(type='hidden' name="record_index" value=record.index)
+	label
+		span title 
+			input(type='text' name="title" value=record.title)
+
+	label
+		span price 
+			input(type='text' name="price" value=record.price)
+	button save

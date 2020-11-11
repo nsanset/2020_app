@@ -1,0 +1,13 @@
+link(rel='stylesheet', href='css/style.css', type='text/css')
+h1.title new
+a(href='/') index
+
+form(action="/save" method="post")
+	label
+		span title 
+			input(type='text' name="title" value=title)
+
+	label
+		span price 
+			input(type='text' name="price" value=price)
+	button save

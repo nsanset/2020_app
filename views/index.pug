@@ -1,0 +1,28 @@
+doctype html
+html
+	head
+		link(rel='stylesheet', href='css/style.css', type='text/css')
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+	body
+		.wrapper
+			h1.title My budget
+			.buttons
+				a.buttonNew.fas.fa-newspaper(href='/new')  New record
+				a.buttonCalendar.fas.fa-calendar-alt(href='/calendar')  Calendar
+			.list
+				if list.length
+					ul
+						each item, index in list
+							li.listRecord
+								span.titleListRecord=item.title
+								|
+								span.priceListRecord| #{item.price}
+
+								- var edit = ["/edit", file, index].join('/')
+								form(action=edit method="POST")
+									button.buttonEdit edit
+								- var deletAction = ["/remove", file, index].join('/')
+								form(action=deletAction method="POST")
+									button.buttonRemove remove
+				else
+					h1 No list click new
